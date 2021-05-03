@@ -1,8 +1,8 @@
-package utils
+package blurhash
 
 import "math"
 
-func SRGBToLinear(value int64) float64 {
+func sRGBToLinear(value int64) float64 {
 	v := float64(value / 255.0)
 	if v <= 0.04045 {
 		return v / 12.92
@@ -11,7 +11,7 @@ func SRGBToLinear(value int64) float64 {
 	}
 }
 
-func LinearTosRGB(value float64) int64 {
+func linearTosRGB(value float64) int64 {
 	v := math.Max(0, math.Min(1, value))
 	if v <= 0.0031308 {
 		return int64(v*12.92*255 + 0.5)
@@ -20,11 +20,11 @@ func LinearTosRGB(value float64) int64 {
 	}
 }
 
-func SignPow(value float64, exp float64) float64 {
+func signPow(value float64, exp float64) float64 {
 	return math.Copysign(math.Pow(math.Abs(value), exp), value)
 }
 
-func Max(values [][]float64, from int32, endExclusive int32) float64 {
+func max(values [][]float64, from int32, endExclusive int32) float64 {
 	result := math.Inf(-1)
 	for i := from; i < endExclusive; i++ {
 		for j := 0; j < len(values[i]); j++ {
