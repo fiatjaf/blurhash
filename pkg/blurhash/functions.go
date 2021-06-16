@@ -24,9 +24,9 @@ func signPow(value float64, exp float64) float64 {
 	return math.Copysign(math.Pow(math.Abs(value), exp), value)
 }
 
-func max(values [][]float64, from int32, endExclusive int32) float64 {
+func max(values [][]float64, fromInclusive int32, endExclusive int32) float64 {
 	result := math.Inf(-1)
-	for i := from; i < endExclusive; i++ {
+	for i := fromInclusive; i < endExclusive; i++ {
 		for j := 0; j < len(values[i]); j++ {
 			value := values[i][j]
 			if value > result {
