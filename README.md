@@ -24,6 +24,7 @@ Flags:
 ### Examples:
 
 Lets encode the input [image](assets/input.png).
+
 ![Input image](assets/input.png)
 
 - Autodetected components ratio:
@@ -62,10 +63,11 @@ Flags:
 ### Examples:
 - Manually set the output ratio:
 ```shell
-blurhash-cli decode --hash='some escaped hash string' --height=480 --width=360 --punch=1 -0 ./assets/output.png
+blurhash-cli decode --hash='rAG+UJS[N4#G?ZGD-;#mWBt-XSIlVa-Et3R5xCS5~pi%9HTWj:#Aa$OEWBRCies:pZNZm:x?E*R*D%tQ-:MyWBozIUs:j?V=XM%Nvo9ZKN%MwJs:' --height=480 --width=360 --punch=1 -0 ./assets/output.png
 ```
 
 So as a result we will get the PNG [image](assets/output.png).
+
 ![Output image](assets/output.png)
 
 
