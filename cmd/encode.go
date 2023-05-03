@@ -16,15 +16,13 @@ var (
 )
 
 func init() {
-	encodeCmd.Flags().IntVarP(&componentX, "componentX", "x", 0, "")
-	encodeCmd.Flags().IntVarP(&componentY, "componentY", "y", 0, "")
-	encodeCmd.Flags().StringVarP(&input, "input", "i", "", "")
+	encodeCmd.Flags().IntVarP(&componentX, "componentX", "x", 9, "Quantity of components by X axis")
+	encodeCmd.Flags().IntVarP(&componentY, "componentY", "y", 9, "Quantity of components by Y axis")
+	encodeCmd.Flags().StringVarP(&input, "input", "i", "", "Path for the input image")
 
-	encodeCmd.MarkFlagRequired("componentX")
-	encodeCmd.MarkFlagRequired("componentY")
 	encodeCmd.MarkFlagRequired("input")
 
-	encodeCmd.MarkFlagsRequiredTogether("componentX", "componentY", "input")
+	encodeCmd.MarkFlagsRequiredTogether("componentX", "componentY")
 
 	rootCmd.AddCommand(encodeCmd)
 }
