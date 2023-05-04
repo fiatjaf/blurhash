@@ -1,8 +1,10 @@
 package cli
 
 import (
+	"fmt"
 	"github.com/spf13/cobra"
 	"go-blurhash-cli/internal/utils"
+	"os"
 )
 
 // Flags for encode command
@@ -34,10 +36,19 @@ var (
 		Short: "Encode image",
 		Long:  `Encode provided image in the blurhash string`,
 		Run: func(cmd *cobra.Command, args []string) {
+			var hash string
+			var err error
 			if autodetect == false {
-				utils.Encode(componentX, componentY, input)
+				hash, err = utils.Encode(componentX, componentY, input)
 			} else {
-				utils.EncodeA(input)
+				hash, err = utils.EncodeA(input)
+			}
+			if err != nil {
+				fmt.Fprintln(os.Stderr, err)
+				os.Exit(1)
+			} else {
+				fmt.Fprintln(os.Stdout, hash)
+				os.Exit(0)
 			}
 		},
 	}
@@ -47,7 +58,14 @@ var (
 		Short: "Decode image",
 		Long:  `Decode provided blurhash string into image`,
 		Run: func(cmd *cobra.Command, args []string) {
-			utils.Decode(hash, width, height, punch, output)
+			err := utils.Decode(hash, width, height, punch, output)
+			if err != nil {
+				fmt.Fprintln(os.Stderr, err)
+				os.Exit(1)
+			} else {
+				fmt.Fprintln(os.Stdout, "OK")
+				os.Exit(0)
+			}
 		},
 	}
 )

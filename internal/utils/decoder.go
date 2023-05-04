@@ -1,7 +1,6 @@
 package utils
 
 import (
-	"fmt"
 	"github.com/bbrks/go-blurhash"
 	"image/png"
 	"os"
@@ -16,14 +15,12 @@ func Decode(
 ) (err error) {
 	result, err := blurhash.Decode(hash, width, height, punch)
 	if err != nil {
-		fmt.Println(err)
-		return
+		return err
 	}
 
 	file, err := os.Create(output)
 	if err != nil {
-		fmt.Println(err)
-		return
+		return err
 	}
 	defer file.Close()
 
@@ -31,8 +28,7 @@ func Decode(
 	// then save to file
 	err = png.Encode(file, result)
 	if err != nil {
-		fmt.Println(err)
-		return
+		return err
 	}
-	return
+	return err
 }

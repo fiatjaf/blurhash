@@ -1,7 +1,6 @@
 package utils
 
 import (
-	"fmt"
 	"github.com/bbrks/go-blurhash"
 	"image"
 	"math"
@@ -12,37 +11,31 @@ func Encode(
 	componentX int,
 	componentY int,
 	input string,
-) (err error) {
+) (hash string, err error) {
 	file, err := os.Open(input)
 	if err != nil {
-		fmt.Println(err)
-		return
+		return hash, err
 	}
 	img, _, err := image.Decode(file)
 	if err != nil {
-		fmt.Println(err)
-		return
+		return hash, err
 	}
 
-	result, err := blurhash.Encode(componentX, componentY, img)
+	hash, err = blurhash.Encode(componentX, componentY, img)
 	if err != nil {
-		fmt.Println(err)
-		return
+		return hash, err
 	}
-	fmt.Println(result)
-	return
+	return hash, err
 }
 
-func EncodeA(input string) (err error) {
+func EncodeA(input string) (hash string, err error) {
 	file, err := os.Open(input)
 	if err != nil {
-		fmt.Println(err)
-		return
+		return hash, err
 	}
 	img, _, err := image.Decode(file)
 	if err != nil {
-		fmt.Println(err)
-		return
+		return hash, err
 	}
 
 	var componentX, componentY int
@@ -55,11 +48,9 @@ func EncodeA(input string) (err error) {
 		componentX = int(math.Min(math.Round(float64(componentY)*ratio), 9))
 	}
 
-	result, err := blurhash.Encode(componentX, componentY, img)
+	hash, err = blurhash.Encode(componentX, componentY, img)
 	if err != nil {
-		fmt.Println(err)
-		return
+		return hash, err
 	}
-	fmt.Println(result)
-	return
+	return hash, err
 }
