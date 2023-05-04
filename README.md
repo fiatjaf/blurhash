@@ -71,6 +71,16 @@ So as a result we will get the PNG [image](assets/output.png).
 ![Output image](assets/output.png)
 
 
+
+---
+## Note
+
+Only PNG format is supported now.
+
+---
+
+
+
 [1]: https://blurha.sh/
 
 [2]: https://github.com/bbrks/go-blurhash
