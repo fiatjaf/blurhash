@@ -5,7 +5,11 @@ CLI tool for [BlurHash][1] with using of existed [implementation][2].
 
 
 
-## Encode
+## Usage
+
+
+
+### Encode
 
 ```
 Encode provided image in the blurhash string
@@ -21,7 +25,7 @@ Flags:
   -i, --input string     Path for the input image
 ```
 
-### Examples:
+#### Examples:
 
 Lets encode the input [image](assets/input.png).
 
@@ -43,7 +47,7 @@ rAG+UJS[N4#G?ZGD-;#mWBt-XSIlVa-Et3R5xCS5~pi%9HTWj:#Aa$OEWBRCies:pZNZm:x?E*R*D%tQ
 
 
 
-# Decode
+### Decode
 
 ```
 Decode provided blurhash string into image
@@ -60,7 +64,7 @@ Flags:
       --width int       Width of the output image (default 64)
 ```
 
-### Examples:
+#### Examples:
 - Manually set the output ratio:
 ```shell
 blurhash-cli decode --hash='rAG+UJS[N4#G?ZGD-;#mWBt-XSIlVa-Et3R5xCS5~pi%9HTWj:#Aa$OEWBRCies:pZNZm:x?E*R*D%tQ-:MyWBozIUs:j?V=XM%Nvo9ZKN%MwJs:' --height=480 --width=360 --punch=1 -o ./assets/output.png
@@ -69,6 +73,12 @@ blurhash-cli decode --hash='rAG+UJS[N4#G?ZGD-;#mWBt-XSIlVa-Et3R5xCS5~pi%9HTWj:#A
 So as a result we will get the PNG [image](assets/output.png).
 
 ![Output image](assets/output.png)
+
+
+
+## Packages
+
+This app is available in [AUR](https://aur.archlinux.org/packages/blurhash-cli).
 
 
 
