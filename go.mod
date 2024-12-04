@@ -1,4 +1,4 @@
-module fiatjaf.com/blurhash
+module github.com/fiatjaf/blurhash
 
 go 1.20
 
