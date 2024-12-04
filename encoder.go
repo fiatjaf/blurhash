@@ -1,10 +1,11 @@
-package utils
+package main
 
 import (
-	"github.com/bbrks/go-blurhash"
 	"image"
 	"math"
 	"os"
+
+	"github.com/bbrks/go-blurhash"
 )
 
 func Encode(

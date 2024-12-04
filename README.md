@@ -3,11 +3,7 @@ BlurHash CLI
 
 CLI tool for [BlurHash][1] with using of existed [implementation][2].
 
-
-
 ## Usage
-
-
 
 ### Encode
 
@@ -27,25 +23,20 @@ Flags:
 
 #### Examples:
 
-Lets encode the input [image](assets/input.png).
-
-![Input image](assets/input.png)
-
-- Autodetected components ratio:
 ```shell
 blurhash-cli encode -a -i ./assets/input.png
 ```
-- Manual components ratio (for our example its 9x6):
+
+Manual components ratio (for our example its 9x6):
+
 ```shell
 blurhash-cli encode -x 9 -y 6 -i ./assets/input.png
 ```
-
 As a result for our input image we will get the next hash string:
+
 ```
 rAG+UJS[N4#G?ZGD-;#mWBt-XSIlVa-Et3R5xCS5~pi%9HTWj:#Aa$OEWBRCies:pZNZm:x?E*R*D%tQ-:MyWBozIUs:j?V=XM%Nvo9ZKN%MwJs:
 ```
-
-
 
 ### Decode
 
@@ -65,32 +56,12 @@ Flags:
 ```
 
 #### Examples:
-- Manually set the output ratio:
+
+Manually set the output ratio:
+
 ```shell
 blurhash-cli decode --hash='rAG+UJS[N4#G?ZGD-;#mWBt-XSIlVa-Et3R5xCS5~pi%9HTWj:#Aa$OEWBRCies:pZNZm:x?E*R*D%tQ-:MyWBozIUs:j?V=XM%Nvo9ZKN%MwJs:' --height=480 --width=360 --punch=1 -o ./assets/output.png
 ```
 
-So as a result we will get the PNG [image](assets/output.png).
-
-![Output image](assets/output.png)
-
-
-
-## Packages
-
-This app is available in [AUR](https://aur.archlinux.org/packages/blurhash-cli).
-
-
-
----
-## Note
-
-Only PNG format is supported now.
-
----
-
-
-
 [1]: https://blurha.sh/
-
 [2]: https://github.com/bbrks/go-blurhash

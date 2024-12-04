@@ -1,4 +1,1 @@
-.idea
-.go
-vendor
-build/bin
+blurhash

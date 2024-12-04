@@ -1,9 +1,10 @@
-package utils
+package main
 
 import (
-	"github.com/bbrks/go-blurhash"
 	"image/png"
 	"os"
+
+	"github.com/bbrks/go-blurhash"
 )
 
 func Decode(
